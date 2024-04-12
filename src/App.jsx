@@ -1,15 +1,22 @@
-import { useState } from 'react'
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import ProjectCreation from "./components/ProjectCreation";
+import ProjectsOverview from "./components/ProjectsOverView";
+
+const router = createBrowserRouter([
+  { path: "/", element: <ProjectsOverview /> },
+  { path: "/create-project", element: <ProjectCreation /> },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <p>
-        Click on the Vite and React logos to learn more
-      </p>
+      <Sidebar />
+      <main>
+        <RouterProvider router={router} />
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
