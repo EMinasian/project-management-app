@@ -10,12 +10,12 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <div className="flex bg-gray-300">
       <Sidebar />
-      <main>
+      <main className="p-4">
         <RouterProvider router={router} />
       </main>
-    </>
+    </div>
   );
 }
 
