@@ -10,9 +10,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="flex bg-gray-300">
+    <div className="flex bg-gray-300 h-full">
       <Sidebar />
-      <main className="p-4 w-full">
+      <main className="p-4 w-full flex flex-col justify-center">
         <RouterProvider router={router} />
       </main>
     </div>

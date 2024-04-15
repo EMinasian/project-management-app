@@ -6,7 +6,7 @@ export default function ProjectsOverview() {
   return (
     <>
       {mockProjects.length === 0 ? (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center gap-2">
           <h2 className="text-xl font-semibold">No Projects Available</h2>
           <p>Get started with a new project.</p>
           <button className={`${buttonStyle}  text-white bg-slate-950`}>
