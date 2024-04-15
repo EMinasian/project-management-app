@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="flex bg-gray-300">
       <Sidebar />
-      <main className="p-4">
+      <main className="p-4 w-full">
         <RouterProvider router={router} />
       </main>
     </div>
