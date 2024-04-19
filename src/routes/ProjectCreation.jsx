@@ -1,20 +1,29 @@
+import { Link } from "react-router-dom";
+import { buttonStyle, containerStyle, inputField } from "../styles/buildBlocks";
+
 export default function ProjectCreation() {
   return (
-    <form>
-      <button>Cancel</button>
-      <button>Save</button>
-      <label>
+    <form className={containerStyle}>
+      <label className="flex flex-col">
         Title
-        <input name="title" type="text" />
+        <input className={inputField} name="title" type="text" />
       </label>
-      <label>
+      <label className="flex flex-col">
         Description
-        <textarea name="title" />
+        <textarea className={`${inputField} resize-none h-40`} name="title" />
       </label>
-      <label>
+      <label className="flex flex-col">
         Due date
-        <input name="date" type="date" />
+        <input className={inputField} type="date" />
       </label>
+      <div className="flex">
+        <button className={`${buttonStyle} bg-slate-950 text-white`}>
+          Save
+        </button>
+        <Link className={`${buttonStyle} bg-white text-slate-950`} to="/">
+          Cancel
+        </Link>
+      </div>
     </form>
   );
 }
