@@ -1,19 +1,22 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { buttonStyle, containerStyle, inputField } from "../styles/buildBlocks";
 import { projectContext } from "../contexts/ProjectsProvider";
 
 export default function ProjectCreation() {
   const { setProjects } = useContext(projectContext);
+  const titleRef = useRef();
+  const descriptionRef = useRef();
+  const dateRef = useRef();
 
   function handleSave(e) {
     e.preventDefault();
     setProjects((prev) => [
       ...prev,
       {
-        title: e.target.title.value,
-        description: e.target.description.value,
-        date: e.target.date.value,
+        title: titleRef.current.value,
+        description: descriptionRef.current.value,
+        date: dateRef.current.value,
       },
     ]);
   }
@@ -27,11 +30,18 @@ export default function ProjectCreation() {
     >
       <label className="flex flex-col">
         Title
-        <input className={inputField} name="title" type="text" required />
+        <input
+          ref={titleRef}
+          className={inputField}
+          name="title"
+          type="text"
+          required
+        />
       </label>
       <label className="flex flex-col">
         Description
         <textarea
+          ref={descriptionRef}
           className={`${inputField} resize-none h-40`}
           name="description"
           required
@@ -39,7 +49,13 @@ export default function ProjectCreation() {
       </label>
       <label className="flex flex-col">
         Due date
-        <input className={inputField} type="date" name="date" required />
+        <input
+          ref={dateRef}
+          className={inputField}
+          type="date"
+          name="date"
+          required
+        />
       </label>
       <div className="flex">
         <button
