@@ -14,6 +14,7 @@ export default function ProjectCreation() {
     setProjects((prev) => [
       ...prev,
       {
+        id: prev?.length || 0,
         title: titleRef.current.value,
         description: descriptionRef.current.value,
         date: dateRef.current.value,

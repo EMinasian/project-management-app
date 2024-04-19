@@ -9,9 +9,9 @@ export default function Sidebar() {
     <aside className="p-4 bg-slate-950 text-white mt-4 rounded-tr-lg min-w-80 flex flex-col">
       <h2 className="text-2xl font-bold my-4">Your Projects</h2>
       {projects.length > 0 ? (
-        <ul>
-          {projects.map((project) => (
-            <li></li>
+        <ul className="m-6 flex flex-col gap-2">
+          {projects.map(({ title, id }) => (
+            <li key={id}>{title}</li>
           ))}
         </ul>
       ) : (
