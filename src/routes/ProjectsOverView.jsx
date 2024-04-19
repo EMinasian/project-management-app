@@ -1,12 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import ProjectItem from "../components/ProjectItem";
-import { mockProjects } from "../static/mockProjects";
+import { projectContext } from "../contexts/ProjectsProvider";
 import { buttonStyle, containerStyle } from "../styles/buildBlocks";
 
 export default function ProjectsOverview() {
+  const { projects } = useContext(projectContext);
+
   return (
     <>
-      {mockProjects.length === 0 ? (
+      {projects.length === 0 ? (
         <div className={containerStyle}>
           <h2 className="text-xl font-semibold">No Projects Available</h2>
           <p>Get started with a new project.</p>
@@ -19,7 +22,7 @@ export default function ProjectsOverview() {
         </div>
       ) : (
         <ul>
-          {mockProjects.map((project) => (
+          {projects.map((project) => (
             <ProjectItem project={project} />
           ))}
         </ul>
