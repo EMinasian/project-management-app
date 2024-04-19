@@ -1,4 +1,5 @@
-import ProjectItem from "./ProjectItem";
+import { Link } from "react-router-dom";
+import ProjectItem from "../components/ProjectItem";
 import { mockProjects } from "../static/mockProjects";
 import { buttonStyle } from "../styles/buildBlocks";
 
@@ -9,9 +10,12 @@ export default function ProjectsOverview() {
         <div className="flex flex-col items-center gap-2">
           <h2 className="text-xl font-semibold">No Projects Available</h2>
           <p>Get started with a new project.</p>
-          <button className={`${buttonStyle}  text-white bg-slate-950`}>
+          <Link
+            className={`${buttonStyle}  text-white bg-slate-950`}
+            to="/create-project"
+          >
             Create project
-          </button>
+          </Link>
         </div>
       ) : (
         <ul>

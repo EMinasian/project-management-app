@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import ProjectCreation from "./components/ProjectCreation";
-import ProjectsOverview from "./components/ProjectsOverView";
+import ProjectCreation from "./routes/ProjectCreation";
+import ProjectsOverview from "./routes/ProjectsOverView";
 
 const router = createBrowserRouter([
   { path: "/", element: <ProjectsOverview /> },
