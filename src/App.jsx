@@ -3,11 +3,13 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import ProjectCreation from "./routes/ProjectCreation";
 import ProjectsOverview from "./routes/ProjectsOverView";
+import ProjectDisplay from "./routes/ProjectDisplay";
 import ProjectsProvider from "./contexts/ProjectsProvider";
 
 const router = createBrowserRouter([
   { path: "/", element: <ProjectsOverview /> },
   { path: "/create-project", element: <ProjectCreation /> },
+  { path: "/:projectId", element: <ProjectDisplay /> },
 ]);
 
 function App() {

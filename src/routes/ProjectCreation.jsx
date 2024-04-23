@@ -2,6 +2,7 @@ import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { buttonStyle, containerStyle, inputField } from "../styles/buildBlocks";
 import { projectContext } from "../contexts/ProjectsProvider";
+import generateProjectId from "../utils/generateProjectId";
 
 export default function ProjectCreation() {
   const { setProjects } = useContext(projectContext);
@@ -14,7 +15,7 @@ export default function ProjectCreation() {
     setProjects((prev) => [
       ...prev,
       {
-        id: prev?.length || 0,
+        id: generateProjectId(titleRef.current.value),
         title: titleRef.current.value,
         description: descriptionRef.current.value,
         date: dateRef.current.value,

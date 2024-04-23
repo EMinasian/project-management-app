@@ -11,7 +11,9 @@ export default function Sidebar() {
       {projects.length > 0 ? (
         <ul className="m-6 flex flex-col gap-2">
           {projects.map(({ title, id }) => (
-            <li key={id}>{title}</li>
+            <li key={id}>
+              <a href={`/${id}`}>{title}</a>
+            </li>
           ))}
         </ul>
       ) : (
