@@ -1,26 +1,29 @@
 import { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { buttonStyle, containerStyle, inputField } from "../styles/buildBlocks";
 import { projectContext } from "../contexts/ProjectsProvider";
 import generateProjectId from "../utils/generateProjectId";
 
 export default function ProjectCreation() {
   const { setProjects } = useContext(projectContext);
+  const navigate = useNavigate();
   const titleRef = useRef();
   const descriptionRef = useRef();
   const dateRef = useRef();
 
   function handleSave(e) {
     e.preventDefault();
+    const projectId = generateProjectId(titleRef.current.value);
     setProjects((prev) => [
       ...prev,
       {
-        id: generateProjectId(titleRef.current.value),
+        id: projectId,
         title: titleRef.current.value,
         description: descriptionRef.current.value,
         date: dateRef.current.value,
       },
     ]);
+    navigate(`/${projectId}`);
   }
 
   return (
