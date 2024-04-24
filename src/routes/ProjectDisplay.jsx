@@ -17,7 +17,7 @@ export default function ProjectDisplay({ id }) {
         <span>{date}</span>
         <button>Delete</button>
       </section>
-      <TasksSection />
+      <TasksSection projectId={projectId}/>
     </>
   );
 }
