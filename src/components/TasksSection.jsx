@@ -7,7 +7,7 @@ export default function TasksSection({ projectId }) {
     <section>
       <ul>
         {tasks.get(projectId).map((task) => (
-          <h2>{task}</h2>
+          <h2 key={task}>{task}</h2>
         ))}
       </ul>
     </section>

@@ -23,7 +23,7 @@ export default function ProjectsOverview() {
       ) : (
         <ul>
           {projects.map((project) => (
-            <ProjectItem project={project} />
+            <ProjectItem project={project} key={project?.id} />
           ))}
         </ul>
       )}
