@@ -9,6 +9,9 @@ function projectsReducer(state, action) {
   if (action.type === "ADD_ITEM") {
     return [...state, action.payload];
   }
+  if (action.type === "DELETE_ITEM") {
+    return state.filter(({ id }) => id !== action.payload);
+  }
 }
 
 export default function ProjectsProvider({ projectValues, children }) {
