@@ -1,12 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useReducer } from "react";
 
 export const projectContext = createContext({
   projects: [],
-  setProjects: null,
+  projectsDispatch: null,
 });
 
+function projectsReducer(state, action) {
+  if (action.type === "ADD_ITEM") {
+    return [...state, action.payload];
+  }
+}
+
 export default function ProjectsProvider({ projectValues, children }) {
-  const [projects, setProjects] = useState([
+  const [projects, projectsDispatch] = useReducer(projectsReducer, [
     {
       title: "Default Project",
       id: "p-default-project",
@@ -20,7 +26,9 @@ export default function ProjectsProvider({ projectValues, children }) {
   );
 
   return (
-    <projectContext.Provider value={{ projects, setProjects, tasks, setTasks }}>
+    <projectContext.Provider
+      value={{ projects, projectsDispatch, tasks, setTasks }}
+    >
       {children}
     </projectContext.Provider>
   );

@@ -5,7 +5,7 @@ import { projectContext } from "../contexts/ProjectsProvider";
 import generateProjectId from "../utils/generateProjectId";
 
 export default function ProjectCreation() {
-  const { setProjects } = useContext(projectContext);
+  const { projectsDispatch } = useContext(projectContext);
   const navigate = useNavigate();
   const titleRef = useRef();
   const descriptionRef = useRef();
@@ -14,15 +14,15 @@ export default function ProjectCreation() {
   function handleSave(e) {
     e.preventDefault();
     const projectId = generateProjectId(titleRef.current.value);
-    setProjects((prev) => [
-      ...prev,
-      {
+    projectsDispatch({
+      type: "ADD_ITEM",
+      payload: {
         id: projectId,
         title: titleRef.current.value,
         description: descriptionRef.current.value,
         date: dateRef.current.value,
       },
-    ]);
+    });
     navigate(`/${projectId}`);
   }
 
